@@ -3,13 +3,22 @@ public class User {
 	private String encPass;
 	private String firstName;
 	private String lastName;
+	private double balance;
 	
 	public User(String username, String rawPass, String firstName, String lastName) {
 		this.username = username;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		encPass = Hash.sha256(rawPass);
-		
+		balance = 0;
+	}
+	
+	public User(String username, String rawPass, String firstName, String lastName, double balance) {
+		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		encPass = Hash.sha256(rawPass);
+		this.balance = balance;
 	}
 	
 	public String getUsername() {
@@ -19,4 +28,5 @@ public class User {
 	public String getName() {
 		return lastName + ", " + firstName;
 	}
+	
 }
