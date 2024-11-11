@@ -9,12 +9,17 @@ public class AccountManager {
         this.usernames = new HashSet<>();
 	}
 	
-	public void createAccount(String username, String password, String fName, String lName) {
+	public boolean createAccount(String username, String rawPass, String fName, String lName) {
 		if(usernames.contains(username)) {
 			System.out.println("A user with the name: " + username + " already exists.");
+			return false;
 		} else {
-			User newUser = new User(username, password, fName, lName);
+			User newUser = new User(username, rawPass, fName, lName);
+			users.put(username, newUser);
+			usernames.add(username);
+			return true;
 		}
+		
 	}
 	
 	public User logIn(String username, String rawPass) {
@@ -22,10 +27,11 @@ public class AccountManager {
 		String encPass = Hash.sha256(rawPass);
 		
 		if (user != null && user.getEncPass().equals(encPass)) {
-		encPass = null;
+		System.out.println("Login successful!");
 		return user; //login worked
+		
 		}
-		encPass = null;
+		System.out.println("Login failed.");
 		return null; //login failed
 	}
 	
