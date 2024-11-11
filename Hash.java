@@ -1,7 +1,7 @@
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class hash {
+public class Hash {
     public static String sha256(String text) {
         try {
             // Create a MessageDigest instance for SHA-256. MessageDigest is a package that contains hashing functions. This instance is called sha256, and uses the SHA-256 algorithm
