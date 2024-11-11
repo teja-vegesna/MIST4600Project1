@@ -16,11 +16,19 @@ public class Transaction {
     }
 
     public String toString() {
-        String pastTensed = switch (type) {
-            case "deposit" -> "deposited";
-            case "withdrawal" -> "withdrew";
-            case "transfer" -> "transferred to " + (recipient != null ? recipient.getUsername() : "unknown");
-            default -> "performed";
+        String pastTensed;
+        switch (type) {
+            case "deposit":
+            pastTensed = "deposited";
+            break;
+            case "withdrawal":
+            pastTensed = "withdrew" ;
+            break;
+            case "transfer":
+            pastTensed = "transferred to " + (recipient != null ? recipient.getUsername() : "unknown");
+            break;
+            default:
+            pastTensed = "performed";
         };
         return user.getUsername() + " " + pastTensed + " " + amount + " on " + date;
     }
