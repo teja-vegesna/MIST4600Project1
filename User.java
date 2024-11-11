@@ -29,4 +29,12 @@ public class User {
 		return lastName + ", " + firstName;
 	}
 	
+	public double getBalance() {
+		return balance;
+	}
+	
+	public String getEncPass() {
+		return encPass;
+	}
+	
 }
