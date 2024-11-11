@@ -7,6 +7,12 @@ public class LoginManager {
 
 		Scanner input = new Scanner(System.in);
 		
+		
+		boolean done = false;
+		while(!done)
+		{
+			
+		
 		System.out.println("Welcome to Java Project Bank Account");
 		System.out.println("What would you like to do today?");
 		System.out.println("1: Create an account");
@@ -34,10 +40,14 @@ public class LoginManager {
 			break;
 			
 		case 3:
+			done = true;
+			System.out.println("Thank you for using the system.");
 			
+			break;
 			
+			default:
 			
-			;
+			break;
 		
 
 		
@@ -45,6 +55,5 @@ public class LoginManager {
 
 		
 	}
-
+	}
 }
-
