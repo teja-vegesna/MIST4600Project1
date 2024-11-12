@@ -1,20 +1,25 @@
 import java.util.*;
 
 public class AccountManager {
-	HashMap<String, User> users; //stores user 
-	HashSet<String> usernames; //keep track of usernames, avoid duplicates
+	protected HashMap<String, User> users; //stores user 
+	private HashSet<String> usernames; //keep track of usernames, avoid duplicates
 	
 	public AccountManager() {
 		this.users = new HashMap<>();
         this.usernames = new HashSet<>();
 	}
 	
-	public boolean createAccount(String username, String rawPass, String fName, String lName) {
+	public boolean createAccount(String username, String rawPass, String fName, String lName, boolean isAdmin) {
 		if(usernames.contains(username)) {
 			System.out.println("A user with the name: " + username + " already exists.");
 			return false;
 		} else {
-			User newUser = new User(username, rawPass, fName, lName);
+			User newUser;
+			if (isAdmin) {
+	            newUser = new Admin(username, rawPass, fName, lName);
+	        } else {
+	            newUser = new User(username, rawPass, fName, lName);
+	        }
 			users.put(username, newUser);
 			usernames.add(username);
 			return true;
