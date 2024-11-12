@@ -14,6 +14,7 @@ public class User {
 	}
 	
 	public User(String username, String rawPass, String firstName, String lastName, double balance) {
+		
 		this.username = username;
 		this.firstName = firstName;
 		this.lastName = lastName;
